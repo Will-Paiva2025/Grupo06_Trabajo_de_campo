@@ -1,0 +1,45 @@
+package Clases;
+
+import java.util.ArrayList;
+
+public class Boleta {
+	private String cliente;
+    private String dni;
+    private ArrayList<Producto> productos;
+    private ArrayList<Integer> cantidades;
+    
+	public Boleta(String cliente, String dni){
+		super();
+		this.cliente = cliente;
+		this.dni = dni;
+		this.productos = productos;
+		this.cantidades = cantidades;
+	}
+	public void AgregarProducto(Producto p, int cantidad) {
+        productos.add(p);
+        cantidades.add(cantidad);
+}
+	public double calcularTotal() {
+        double total = 0;
+        for (int i = 0; i < productos.size(); i++) {
+            total += productos.get(i).getPrecio() * cantidades.get(i);
+        }
+        return total;
+    }
+	 public String generarTexto() {
+	        StringBuilder sb = new StringBuilder();
+	        sb.append("===== BOLETA DE VENTA =====\n");
+	        sb.append("Cliente: ").append(cliente).append("\n");
+	        sb.append("DNI: ").append(dni).append("\n\n");
+	        sb.append("Productos:\n");
+	        for (int i = 0; i < productos.size(); i++) {
+	            Producto p = productos.get(i);
+	            sb.append(p.getProducto()).append("  x").append(cantidades.get(i))
+	              .append("  S/").append(p.getPrecio() * cantidades.get(i)).append("\n");
+	        }
+	        sb.append("------------------------------\n");
+	        sb.append("TOTAL: S/").append(calcularTotal()).append("\n");
+	        sb.append("==============================\n");
+	        return sb.toString();
+	    }
+}
