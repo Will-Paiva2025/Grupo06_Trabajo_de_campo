@@ -1,0 +1,37 @@
+package Clases;
+
+public class Producto {
+	private int Codigo;
+	private String Producto;
+	private Double Precio;
+	
+	public Producto(int codigo, String producto, Double precio) {
+		Codigo = codigo;
+		Producto = producto;
+		Precio = precio;
+	}
+
+	public int getCodigo() {
+		return Codigo;
+	}
+
+	public void setCodigo(int codigo) {
+		Codigo = codigo;
+	}
+
+	public String getProducto() {
+		return Producto;
+	}
+
+	public void setProducto(String producto) {
+		Producto = producto;
+	}
+
+	public Double getPrecio() {
+		return Precio;
+	}
+
+	public void setPrecio(Double precio) {
+		Precio = precio;
+	}
+}
